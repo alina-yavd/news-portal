@@ -8,6 +8,12 @@ use App\ViewModel\SingleArticle;
 use Faker\Factory;
 use Faker\Generator;
 
+/*
+ * SingleArticleFakeProvider imitates the article info provider using the Faker library.
+ * Generates sample data similar to the real article data.
+ *
+ * Can be used by the view model to test the single article template layout.
+ */
 final class SingleArticleFakeProvider implements SingleArticleProviderInterface
 {
     private const CATEGORIES = [
