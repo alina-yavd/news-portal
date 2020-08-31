@@ -10,20 +10,20 @@ final class SingleArticle
     private string $title;
     private string $categoryTitle;
     private \DateTimeImmutable $publicationDate;
-    private ?string $description;
+    private ?string $body;
 
     public function __construct(
         int $id,
         string $title,
         string $categoryTitle,
         \DateTimeImmutable $publicationDate,
-        ?string $description
+        ?string $body
     ) {
         $this->id = $id;
         $this->title = $title;
         $this->categoryTitle = $categoryTitle;
         $this->publicationDate = $publicationDate;
-        $this->description = $description;
+        $this->body = $body;
     }
 
     public function getId(): int
@@ -46,8 +46,8 @@ final class SingleArticle
         return $this->publicationDate;
     }
 
-    public function getDescription(): ?string
+    public function getBody(): ?string
     {
-        return $this->description;
+        return $this->body;
     }
 }

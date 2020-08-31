@@ -30,7 +30,7 @@ final class SingleArticleFakeProvider implements SingleArticleProviderInterface
         $this->faker = Factory::create();
     }
 
-    public function getItem($id): SingleArticle
+    public function getById(int $id): SingleArticle
     {
         $title = $this->faker->words(
             $this->faker->numberBetween(1, 4),

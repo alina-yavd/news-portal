@@ -6,18 +6,16 @@
 
 {% block body %}
     <article class="single-article">
-        {% if article is not null %}
-            <div class="title-wrap">
-                <div class="title">
-                    <a href="#" class="category-link">{{ article.categoryTitle }}</a>
-                    <h1>{{ article.title }}</h1>
-                </div>
-                <div class="date">
-                    <time>{{ article.publicationDate | date('d-m-Y') }}</time>
-                </div>
+        <div class="title-wrap">
+            <div class="title">
+                <a href="#" class="category-link">{{ article.categoryTitle }}</a>
+                <h1>{{ article.title }}</h1>
             </div>
-            <p>{{ article.description }}</p>
-            <div class="clearfix"></div>
-        {% endif %}
+            <div class="date">
+                <time>{{ article.publicationDate | date('d-m-Y') }}</time>
+            </div>
+        </div>
+        <p>{{ article.body }}</p>
+        <div class="clearfix"></div>
     </article>
 {% endblock %}

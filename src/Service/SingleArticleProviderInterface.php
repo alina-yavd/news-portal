@@ -13,5 +13,5 @@ use App\ViewModel\SingleArticle;
  */
 interface SingleArticleProviderInterface
 {
-    public function getItem($id): SingleArticle;
+    public function getById(int $id): SingleArticle;
 }
