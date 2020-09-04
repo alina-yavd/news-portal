@@ -28,6 +28,14 @@ class Article
     private string $title;
 
     /**
+     * Many articles have one category.
+     *
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="article")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    private ?Category $category;
+
+    /**
      * @ORM\Column(type="string", length=100, nullable=true)
      */
     private ?string $image = null;
@@ -64,6 +72,18 @@ class Article
         $this->updatedAt = new \DateTimeImmutable();
     }
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function addCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
     public function addImage(?string $image): self
     {
         $this->image = $image;
@@ -85,6 +105,11 @@ class Article
         return $this;
     }
 
+    private function getCategoryTitle(): ?string
+    {
+        return (null !== $this->category) ? $this->category->getTitle() : '';
+    }
+
     /*
      * @throws ArticleBodyCannotBeEmptyException
      */
@@ -101,7 +126,7 @@ class Article
     {
         return new HomePageArticle(
             $this->id,
-            'Set category title here', // TODO: set category title
+            $this->getCategoryTitle(),
             $this->title,
             $this->publicationDate,
             $this->image,
@@ -114,7 +139,7 @@ class Article
         return new SingleArticle(
             $this->id,
             $this->title,
-            'Set category title here', // TODO: set category title
+            $this->getCategoryTitle(),
             $this->publicationDate,
             $this->body
         );
