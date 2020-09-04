@@ -25,5 +25,4 @@ final class HomePageArticlesDBProvider implements HomePageArticlesProviderInterf
 
         return new HomePageArticles(...$viewModels);
     }
-
 }

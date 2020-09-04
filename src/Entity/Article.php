@@ -7,6 +7,7 @@ namespace App\Entity;
 use App\Exception\ArticleBodyCannotBeEmptyException;
 use App\Repository\ArticleRepository;
 use App\ViewModel\HomePageArticle;
+use App\ViewModel\SingleArticle;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -105,6 +106,17 @@ class Article
             $this->publicationDate,
             $this->image,
             $this->shortDescription
+        );
+    }
+
+    public function getSingleArticle(): SingleArticle
+    {
+        return new SingleArticle(
+            $this->id,
+            $this->title,
+            'Set category title here', // TODO: set category title
+            $this->publicationDate,
+            $this->body
         );
     }
 }
