@@ -6,6 +6,7 @@ namespace App\Entity;
 
 use App\Exception\ArticleBodyCannotBeEmptyException;
 use App\Repository\ArticleRepository;
+use App\ViewModel\HomePageArticle;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -93,5 +94,17 @@ class Article
         }
         $this->publicationDate = new \DateTimeImmutable();
         $this->updatedAt = new \DateTimeImmutable();
+    }
+
+    public function getHomePageArticle(): HomePageArticle
+    {
+        return new HomePageArticle(
+            $this->id,
+            'Set category title here', // TODO: set category title
+            $this->title,
+            $this->publicationDate,
+            $this->image,
+            $this->shortDescription
+        );
     }
 }
