@@ -4,24 +4,26 @@ declare(strict_types=1);
 
 namespace App\ViewModel;
 
+use App\Entity\Category;
+
 final class SingleArticle
 {
     private int $id;
     private string $title;
-    private string $categoryTitle;
+    private ?Category $category;
     private \DateTimeImmutable $publicationDate;
     private ?string $body;
 
     public function __construct(
         int $id,
         string $title,
-        string $categoryTitle,
+        ?Category $category,
         \DateTimeImmutable $publicationDate,
         ?string $body
     ) {
         $this->id = $id;
         $this->title = $title;
-        $this->categoryTitle = $categoryTitle;
+        $this->category = $category;
         $this->publicationDate = $publicationDate;
         $this->body = $body;
     }
@@ -36,9 +38,9 @@ final class SingleArticle
         return $this->title;
     }
 
-    public function getCategoryTitle(): string
+    public function getCategory(): ?Category
     {
-        return $this->categoryTitle;
+        return $this->category;
     }
 
     public function getPublicationDate(): \DateTimeImmutable

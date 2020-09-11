@@ -26,18 +26,18 @@ class CategoryRepository extends ServiceEntityRepository
     /*
      * @throws EntityNotFoundException
      */
-    public function getById($id): Category
+    public function getBySlug(string $slug): Category
     {
         $query = $this
             ->createQueryBuilder('c')
-            ->andWhere('c.id = :id')
-            ->setParameter('id', $id)
+            ->andWhere('c.slug = :slug')
+            ->setParameter('slug', $slug)
             ->getQuery();
 
         $category = $query->getOneOrNullResult();
 
         if (null == $category) {
-            throw new EntityNotFoundException('Category', $id);
+            throw new EntityNotFoundException('Category', 0);
         }
 
         return $category;

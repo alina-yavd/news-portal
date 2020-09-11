@@ -1,7 +1,7 @@
-.single-article {
+.single-article, .single-category {
     padding: 0 30px;
 }
-.single-article .title-wrap {
+.single-article .title-wrap, .single-category .title-wrap {
     display: flex;
     flex-wrap: wrap;
     align-items: center;

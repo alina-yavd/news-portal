@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{{ asset('css/article.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/single.css') }}">
 {% endblock %}
 
 {% block body %}
     <article class="single-article">
         <div class="title-wrap">
             <div class="title">
-                <a href="#" class="category-link">{{ article.categoryTitle }}</a>
+                <a href="{{ path('app_category_page', {slug: article.category.slug}) }}" class="category-link">{{ article.category.title }}</a>
                 <h1>{{ article.title }}</h1>
             </div>
             <div class="date">

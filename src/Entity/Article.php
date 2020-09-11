@@ -105,9 +105,9 @@ class Article
         return $this;
     }
 
-    private function getCategoryTitle(): ?string
+    private function getCategory(): ?Category
     {
-        return (null !== $this->category) ? $this->category->getTitle() : '';
+        return $this->category;
     }
 
     /*
@@ -122,11 +122,16 @@ class Article
         $this->updatedAt = new \DateTimeImmutable();
     }
 
+    public function isPublished(): bool
+    {
+        return null !== $this->publicationDate;
+    }
+
     public function getHomePageArticle(): HomePageArticle
     {
         return new HomePageArticle(
             $this->id,
-            $this->getCategoryTitle(),
+            $this->getCategory(),
             $this->title,
             $this->publicationDate,
             $this->image,
@@ -139,7 +144,7 @@ class Article
         return new SingleArticle(
             $this->id,
             $this->title,
-            $this->getCategoryTitle(),
+            $this->getCategory(),
             $this->publicationDate,
             $this->body
         );

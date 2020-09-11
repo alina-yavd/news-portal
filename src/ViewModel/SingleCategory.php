@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace App\ViewModel;
 
-use Doctrine\Common\Collections\Collection;
+use App\Collection\HomePageArticles;
 
-final class CategoryDTO
+final class SingleCategory
 {
     private int $id;
     private string $title;
-    private Collection $articles;
+    private ?HomePageArticles $articles;
 
     public function __construct(
         int $id,
         string $title,
-        Collection $articles
+        ?HomePageArticles $articles
     ) {
         $this->id = $id;
         $this->title = $title;
@@ -30,5 +30,10 @@ final class CategoryDTO
     public function getTitle(): string
     {
         return $this->title;
+    }
+
+    public function getArticles(): ?HomePageArticles
+    {
+        return $this->articles;
     }
 }
