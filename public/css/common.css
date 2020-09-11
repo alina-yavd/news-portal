@@ -68,3 +68,12 @@ footer > .copyright {
     line-height: 100px;
     text-align: center;
 }
+
+.not-found {
+    padding: 0 15px;
+}
+
+.not-found a {
+    border-bottom: 1px dashed;
+    text-decoration: none;
+}
