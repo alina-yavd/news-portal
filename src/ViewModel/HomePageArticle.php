@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace App\ViewModel;
 
-use App\Entity\Category;
-
 final class HomePageArticle
 {
     private int $id;
-    private ?Category $category;
+    private string $categoryTitle;
     private string $title;
     private \DateTimeImmutable $publicationDate;
     private ?string $image;
@@ -17,14 +15,14 @@ final class HomePageArticle
 
     public function __construct(
         int $id,
-        Category $category,
+        string $categoryTitle,
         string $title,
         \DateTimeImmutable $publicationDate,
         ?string $image,
         ?string $shortDescription
     ) {
         $this->id = $id;
-        $this->category = $category;
+        $this->categoryTitle = $categoryTitle;
         $this->title = $title;
         $this->publicationDate = $publicationDate;
         $this->image = $image;
@@ -36,9 +34,9 @@ final class HomePageArticle
         return $this->id;
     }
 
-    public function getCategory(): ?Category
+    public function getCategoryTitle(): string
     {
-        return $this->category;
+        return $this->categoryTitle;
     }
 
     public function getTitle(): string
