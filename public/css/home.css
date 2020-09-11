@@ -6,6 +6,7 @@ main section.top-posts > article.main-post {
     width: 80%;
     margin: 0 auto;
     margin-bottom: 60px;
+    overflow: hidden;
 }
 
 main section.top-posts article.top-post > a.category-link {
